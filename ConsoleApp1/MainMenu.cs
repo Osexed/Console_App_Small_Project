@@ -9,9 +9,8 @@ namespace ConsoleApp1
 {
     class MainMenu
     {
-        public int height = 40;
-        public int width = 80;
-        private bool cyklus = true;
+        public int height = 40; 
+        public int width = 80; //veřejná proměnná kterou použivám pro pozicování
         public void ScreenSettings(int height, int width)
         {
             Console.Clear();
@@ -28,7 +27,7 @@ namespace ConsoleApp1
                 Console.Clear();
                 Console.SetWindowSize(width, height);
             }
-        }
+        }//Nastavení velikosti obrazovky pro pozicování 
         private void WelcomeText()
         {
             int top = 2;
@@ -274,22 +273,22 @@ namespace ConsoleApp1
                 }
                 top++;
             } //E
-        }
+        }//metoda pro vypsání Welcome
         public void Menu()
         {
-            Calculator kalku = new Calculator();
+            Calculator kalku = new Calculator(); //instance tříd kdybych je dal mimo metodu dělá to propodivný exception
             Samohlasky samo = new Samohlasky();
             NumberGuessing numg = new NumberGuessing();
             Pexeso pexeso = new Pexeso();
 
             Console.Title = "Main Menu - Hořejší";
-            cyklus = true;
+            bool cyklus = true;
             while (cyklus)
             {
                 ScreenSettings(height, width);
                 WelcomeText();
-                int top = 10;
-                try
+                int top = 10; //preměnná pro pozicování na řádcích
+                try //pasivní ošetření když by se user překlikl nebo se snažil záměrně rozbít chod programu
                 {
                     Console.SetCursorPosition((width / 2) - 5, top);
                     Console.WriteLine("MENU");
@@ -314,27 +313,27 @@ namespace ConsoleApp1
                     Console.WriteLine("--------");
 
                     Console.SetCursorPosition((width / 2) + 1, top + 8);
-                    int user_pick = int.Parse(Console.ReadLine());
+                    int user_pick = int.Parse(Console.ReadLine()); 
 
-                    switch (user_pick) //u jednotlivých picku budu volat metody z dalěích tříd tudíž na žačatku si jednotlivé třídy načtu
+                    switch (user_pick)
                     {
                         case 1:
-                            kalku.Calc_Skeleton();
+                            kalku.Calc_Skeleton(); //Kalkulačka
                             break;
                         case 2:
-                            samo.Samo_Skeleton();
+                            samo.Samo_Skeleton(); //Samohlásky
                             break;
                         case 3:
-                            numg.Guess_Skeleton();
+                            numg.Guess_Skeleton(); //Hádání čísla
                             break;
                         case 4:
-                            pexeso.Pexeso_Skeleton();
+                            pexeso.Pexeso_Skeleton(); //Pexeso nepexeso
                             break;
                         case 5:
-                            cyklus = false;
+                            cyklus = false; //Konec programu
                             break;
                         default:
-                            Wrong();
+                            Wrong(); //když by uživatel zadal číslo <0 nebo číslo >5 nefunguje to pro formatexception pro to tu mám try catch
                             break;
                     }
                 }
@@ -376,6 +375,6 @@ namespace ConsoleApp1
             Thread.Sleep(100);
             Console.Clear();
 
-        }
+        } //metoda pro text když se něco pokazí
     }
 }

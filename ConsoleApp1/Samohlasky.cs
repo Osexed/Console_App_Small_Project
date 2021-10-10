@@ -18,7 +18,7 @@ namespace ConsoleApp1
 
             Samo_Input();
         }
-        private void Samo_Input()
+        private void Samo_Input() 
         {
             int top = 10;
 

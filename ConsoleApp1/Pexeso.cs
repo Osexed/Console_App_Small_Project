@@ -10,14 +10,18 @@ namespace ConsoleApp1
     {
         MainMenu menu = new MainMenu();
         Random ran = new Random();
-        private string[] Pole = new string[] {"0", "1", "2", "3", "4", "5", "6", "7", "8","9"};
+        private string[] Pole = new string[] {"0", "1", "2", "3", "4", "5", "6", "7", "8","9"}; //pro vypsání čísel v "kartách"
         private string[] Pole_animals = new string[] {"vlk", "lev", "ovce", "koza", "pes", };
         private int[] Ran_an = new int[5];
         private int[] Ran_an1 = new int[5];
         private bool Internal_Bool = true;
-        private int user_incard1 = 0;
+        private int user_incard1 = 0; //incard jakožto user_input_card_1 (0-4)...
         private int user_incard2 = 0;
-        private int citac1 = 0;
+        private int citac1 = 0; //promenne pro ukonceni pexesa
+        private int citac2 = 0;
+        private int citac3 = 0;
+        private int citac4 = 0;
+        private int citac5 = 0;
 
         public void Pexeso_Skeleton()
         {
@@ -29,7 +33,7 @@ namespace ConsoleApp1
             {
                 Pexeso_Input();
 
-                if (citac1 == 5)
+                if ((citac1 >= 1) && (citac2 >= 1) && (citac3 >= 1) && (citac4 >= 1) && (citac5 >= 1))
                 {
                     Internal_Bool = false;
                 }
@@ -106,7 +110,7 @@ namespace ConsoleApp1
                                 Pole[user_incard1] = " ";
                                 Pole[6] = " ";
                                 Console.WriteLine("Uhádl jsi!");
-                                citac1++;
+                                citac2++;
                             }
                             break;
                         case 7:
@@ -117,7 +121,7 @@ namespace ConsoleApp1
                                 Pole[user_incard1] = " ";
                                 Pole[7] = " ";
                                 Console.WriteLine("Uhádl jsi!");
-                                citac1++;
+                                citac3++;
                             }
                             break;
                         case 8:
@@ -128,7 +132,7 @@ namespace ConsoleApp1
                                 Pole[user_incard1] = " ";
                                 Pole[8] = " ";
                                 Console.WriteLine("Uhádl jsi!");
-                                citac1++;
+                                citac4++;
                             }
                             break;
                         case 9:
@@ -139,7 +143,7 @@ namespace ConsoleApp1
                                 Pole[user_incard1] = " ";
                                 Pole[9] = " ";
                                 Console.WriteLine("Uhádl jsi!");
-                                citac1++;
+                                citac5++;
                             }
                             break;
                         default:
@@ -324,7 +328,7 @@ namespace ConsoleApp1
                         }
                     }
                 }
-            } //algortimus :)
+            } //algortimus Ran_an
 
             cyklus = true;
             cyklus1 = true;
@@ -477,7 +481,7 @@ namespace ConsoleApp1
                         }
                     }
                 }
-            } //algortimus 2 :) přepiš tam ty proměnný cyklus
+            } //algortimus Ran_an1
         }
 
         /*public void Test()
